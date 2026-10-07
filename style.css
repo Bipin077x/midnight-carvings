@@ -1,0 +1,982 @@
+/* =========================================================
+   1. GLOBAL RESET & BASIC SETTINGS
+   ========================================================= */
+
+/* Remove default browser spacing and use border-box sizing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Enable smooth scrolling when clicking navigation links */
+html {
+  scroll-behavior: smooth;
+}
+
+
+/* =========================================================
+   2. COLOR VARIABLES
+   ========================================================= */
+
+:root {
+  --dark: #0b0b0a;       /* Main dark background */
+  --cream: #f5f1e8;      /* Main page background */
+  --gold: #c99b50;       /* Restaurant accent color */
+  --text: #1b1a17;       /* Main text color */
+  --muted: #77736c;      /* Secondary/muted text */
+}
+
+
+/* =========================================================
+   3. BODY & GLOBAL ELEMENTS
+   ========================================================= */
+
+body {
+  font-family: "DM Sans", sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* Remove underline from links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+/* =========================================================
+   4. NAVIGATION BAR
+   ========================================================= */
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+  height: 72px;
+  padding: 0 7%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: #0b0b0a;
+  color: white;
+
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* Logo */
+
+.logo {
+  font-family: "Playfair Display", serif;
+  font-size: 21px;
+  font-weight: 600;
+  color: white;
+}
+
+/* Navigation */
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  color: #d7d3cb;
+  font-size: 13px;
+  transition: 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #c99b50;
+}
+
+/* Reservation button */
+
+.reserve-btn {
+  background: #c99b50;
+  color: #111;
+
+  padding: 10px 18px;
+  border-radius: 4px;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  transition: 0.3s;
+}
+
+.reserve-btn:hover {
+  background: #e0b66c;
+  transform: translateY(-2px);
+}
+  /* Keep navbar visible while scrolling */
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
+  border-bottom: 1px solid #29251e;
+}
+
+/* Restaurant logo */
+.logo {
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+}
+
+/* Gold accent used in logo and headings */
+.logo span,
+h1 span,
+h2 span,
+footer span {
+  color: var(--gold);
+}
+
+
+/* Navigation links container */
+.nav-links {
+  display: flex;
+  gap: 30px;
+  font-size: 13px;
+}
+
+/* Navigation link hover effect */
+.nav-links a:hover {
+  color: var(--gold);
+}
+
+
+/* =========================================================
+   5. BUTTONS
+   ========================================================= */
+
+/* Common button styling */
+.btn {
+  display: inline-block;
+  border: 1px solid transparent;
+  padding: 11px 20px;
+  border-radius: 5px;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+/* Gold primary button */
+.btn-gold {
+  background: var(--gold);
+  color: #15110b;
+}
+
+/* Primary button hover */
+.btn-gold:hover {
+  background: #dfb86f;
+}
+
+/* Transparent/outlined button */
+.btn-outline {
+  border-color: #ddd;
+  color: #fff;
+}
+
+/* Outline button hover */
+.btn-outline:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+
+/* =========================================================
+   6. HERO SECTION
+   ========================================================= */
+.hero {
+  min-height: 620px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 80px 7%;
+
+  position: relative;
+
+  color: white;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.82) 0%,
+      rgba(0, 0, 0, 0.55) 50%,
+      rgba(0, 0, 0, 0.25) 100%
+    ),
+    url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1800&q=90")
+    center / cover no-repeat;
+}
+
+
+/* Limit the width of hero text */
+.hero-content {
+  max-width: 650px;
+}
+
+.hero-label {
+  color: #c99b50;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  letter-spacing: 2px;
+
+  margin-bottom: 18px;
+}
+
+
+/* Small text above the main heading */
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #d4af70;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+/* Dark-background version of eyebrow text */
+.eyebrow.dark {
+  color: #9b7438;
+}
+
+
+/* =========================================================
+   7. HEADINGS
+   ========================================================= */
+
+h1,
+h2 {
+  font-family: "Playfair Display", serif;
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+/* Main Hero Heading */
+h1 {
+  font-size: clamp(52px, 7vw, 92px);
+  max-width: 900px;
+  margin: 0 0 24px;
+  color: #f5f1e8;
+}
+
+/* Hero Description */
+.hero-text {
+  max-width: 520px;
+  margin: 0 0 32px;
+  color: rgba(245, 241, 232, 0.72);
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+}
+
+/* Buttons inside Hero Section */
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* Hero Button Base */
+.hero-actions button,
+.hero-actions a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0 26px;
+  border-radius: 999px;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* Primary Hero Button */
+.hero-actions .primary {
+  background: #f5f1e8;
+  color: #111;
+  border: 1px solid #f5f1e8;
+}
+
+.hero-actions .primary:hover {
+  transform: translateY(-2px);
+  background: #ffffff;
+}
+
+/* Secondary Hero Button */
+.hero-actions .secondary {
+  background: transparent;
+  color: #f5f1e8;
+  border: 1px solid rgba(245, 241, 232, 0.35);
+}
+
+.hero-actions .secondary:hover {
+  transform: translateY(-2px);
+  border-color: rgba(245, 241, 232, 0.8);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: clamp(48px, 14vw, 68px);
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .hero-text {
+    max-width: 100%;
+    font-size: 15px;
+    line-height: 1.65;
+    margin-bottom: 26px;
+  }
+
+  .hero-actions {
+    gap: 10px;
+  }
+
+  .hero-actions button,
+  .hero-actions a {
+    min-height: 48px;
+    padding: 0 22px;
+  }
+}
+
+/* =========================================================
+   8. RESTAURANT FEATURES
+   ========================================================= */
+
+.features {
+  display: grid;
+
+  /* Four equal columns on desktop */
+  grid-template-columns: repeat(4, 1fr);
+
+  background: #fff;
+  padding: 28px 7%;
+
+  border-bottom: 1px solid #e2ded5;
+}
+
+
+/* Individual feature */
+.feature {
+  display: flex;
+  gap: 12px;
+
+  justify-content: center;
+  align-items: center;
+
+  /* Vertical divider between features */
+  border-right: 1px solid #ddd;
+}
+
+/* Remove divider from final feature */
+.feature:last-child {
+  border: 0;
+}
+
+
+/* Feature icon */
+.feature > span {
+  font-size: 25px;
+  color: var(--gold);
+}
+
+
+/* Feature title and description */
+.feature strong,
+.feature small {
+  display: block;
+}
+
+
+/* Feature title */
+.feature strong {
+  font-size: 12px;
+}
+
+
+/* Feature description */
+.feature small {
+  font-size: 10px;
+  color: var(--muted);
+}
+
+
+/* =========================================================
+   9. GENERAL SECTION
+   ========================================================= */
+
+.section {
+  padding: 85px 7%;
+
+  /* Prevent content from becoming too wide */
+  max-width: 1250px;
+
+  /* Center section */
+  margin: auto;
+}
+
+
+/* Section heading */
+.section-heading {
+  text-align: center;
+  margin-bottom: 38px;
+}
+
+
+/* Section title */
+.section-heading h2 {
+  font-size: 44px;
+  margin-bottom: 10px;
+}
+
+
+/* Section subtitle */
+.section-heading > p:last-child {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+
+/* =========================================================
+   10. DISH / FOOD CARDS
+   ========================================================= */
+
+.dish-grid {
+  display: grid;
+
+  /* Four food cards per row */
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 16px;
+}
+
+
+/* Individual food card */
+.dish-card {
+  background: #fff;
+  border: 1px solid #e4dfd5;
+  border-radius: 6px;
+
+  /* Keeps image inside rounded corners */
+  overflow: hidden;
+}
+
+
+/* Food image */
+.dish-card img {
+  width: 100%;
+  height: 190px;
+
+  /* Prevent image distortion */
+  object-fit: cover;
+
+  display: block;
+}
+
+
+/* Food information area */
+.dish-info {
+  padding: 17px;
+}
+
+
+/* Dish name */
+.dish-info h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 18px;
+}
+
+
+/* Dish description */
+.dish-info p {
+  font-size: 11px;
+  color: var(--muted);
+
+  /* Keeps cards roughly the same height */
+  min-height: 40px;
+
+  margin: 4px 0 12px;
+}
+
+
+/* Dish price */
+.dish-info strong {
+  color: #15130f;
+}
+
+
+/* =========================================================
+   11. RESTAURANT STORY SECTION
+   ========================================================= */
+
+.story {
+  background: #0d0d0c;
+  color: #fff;
+
+  padding: 85px 7%;
+
+  /* Two-column layout */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 60px;
+
+  /* Vertically align both columns */
+  align-items: center;
+}
+
+
+/* Story heading */
+.story h2 {
+  font-size: 54px;
+  margin-bottom: 18px;
+}
+
+
+/* Story paragraph */
+.story-content > p:not(.eyebrow) {
+  color: #c5c1ba;
+  max-width: 500px;
+  margin-bottom: 24px;
+  font-size: 13px;
+}
+
+
+/* Story image */
+.story-image img {
+  width: 100%;
+  height: 410px;
+
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+
+/* =========================================================
+   12. MENU SECTION
+   ========================================================= */
+
+.menu-columns {
+  display: grid;
+
+  /* Two menu columns */
+  grid-template-columns: 1fr 1fr;
+
+  gap: 50px;
+}
+
+
+/* Individual menu item */
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+
+  padding: 18px 0;
+
+  /* Divider between menu items */
+  border-bottom: 1px solid #ddd4c5;
+}
+
+
+/* Menu item name */
+.menu-item h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 18px;
+}
+
+
+/* Menu item description */
+.menu-item p {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+
+/* Menu price */
+.menu-item b {
+  /* Prevent price from wrapping onto another line */
+  white-space: nowrap;
+
+  color: #4b3820;
+}
+
+
+/* =========================================================
+   13. RESERVATION SECTION
+   ========================================================= */
+
+.reservation {
+  padding: 65px 7%;
+
+  /*
+    Dark overlay + background image
+    makes the reservation section visually prominent.
+  */
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.8),
+      rgba(0, 0, 0, 0.55)
+    ),
+    url("https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1800&q=90")
+    center / cover;
+
+  color: #fff;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 50px;
+}
+
+
+/* Reservation heading */
+.reservation h2 {
+  font-size: 48px;
+}
+
+
+/* Reservation form */
+.reservation form {
+  background: rgba(20, 20, 20, 0.92);
+
+  padding: 22px;
+  border-radius: 7px;
+
+  /* Two-column form layout */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 15px;
+
+  /* Minimum desktop width */
+  min-width: 430px;
+}
+
+
+/* Form labels */
+.reservation label {
+  font-size: 11px;
+  color: #ddd;
+}
+
+
+/* Form inputs and dropdowns */
+.reservation input,
+.reservation select {
+  display: block;
+
+  width: 100%;
+
+  margin-top: 6px;
+  padding: 11px;
+
+  background: #171717;
+  border: 1px solid #555;
+
+  color: #fff;
+
+  border-radius: 4px;
+}
+
+
+/* =========================================================
+   14. IMAGE GALLERY
+   ========================================================= */
+
+.gallery {
+  display: grid;
+
+  /* Four images per row */
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 10px;
+}
+
+
+/* Gallery images */
+.gallery img {
+  width: 100%;
+  height: 210px;
+
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+
+/* =========================================================
+   15. FOOTER
+   ========================================================= */
+
+footer {
+  background: #090909;
+  color: #aaa;
+
+  padding: 55px 7%;
+
+  /* Four footer columns */
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.5fr 1fr;
+
+  gap: 40px;
+
+  font-size: 11px;
+}
+
+
+/* Footer main headings */
+footer h3 {
+  font-family: "Playfair Display", serif;
+  color: #fff;
+  font-size: 21px;
+  margin-bottom: 10px;
+}
+
+
+/* Footer column headings */
+footer h4 {
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+
+/* Footer links */
+footer a {
+  display: block;
+  margin: 4px 0;
+}
+
+
+/* Footer link hover */
+footer a:hover {
+  color: var(--gold);
+}
+
+
+/* =========================================================
+   16. TOAST / NOTIFICATION MESSAGE
+   ========================================================= */
+
+.toast {
+  position: fixed;
+
+  /* Position at bottom center of screen */
+  bottom: 25px;
+  left: 50%;
+
+  /*
+    Initially move the toast below the screen.
+    It becomes visible when .show is added.
+  */
+  transform: translate(-50%, 120px);
+
+  background: #16120c;
+  color: #fff;
+
+  border: 1px solid var(--gold);
+
+  padding: 12px 20px;
+  border-radius: 5px;
+
+  font-size: 12px;
+
+  /* Smooth show/hide animation */
+  transition: 0.3s;
+
+  z-index: 30;
+}
+
+
+/* Visible toast state */
+.toast.show {
+  transform: translate(-50%, 0);
+}
+
+
+/* =========================================================
+   17. TABLET / MOBILE RESPONSIVE DESIGN
+   ========================================================= */
+
+/*
+   Applies when screen width is 800px or smaller.
+*/
+@media (max-width: 800px) {
+
+  /* Reduce navbar side padding */
+  .navbar {
+    padding: 0 20px;
+  }
+
+  /* Hide desktop navigation links */
+  .nav-links {
+    display: none;
+  }
+
+  /* Hero adjustments */
+  .hero {
+    min-height: 600px;
+    padding: 50px 25px;
+  }
+
+  /* Allow hero buttons to wrap */
+  .hero-actions {
+    flex-wrap: wrap;
+  }
+
+  /* Feature section becomes two columns */
+  .features {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  /* Remove divider from second feature */
+  .feature:nth-child(2) {
+    border: 0;
+  }
+
+  /* Food cards become two columns */
+  .dish-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Story changes from two columns to one */
+  .story {
+    grid-template-columns: 1fr;
+    padding: 60px 7%;
+  }
+
+  /* Smaller story image */
+  .story-image img {
+    height: 300px;
+  }
+
+  /* Menu becomes one column */
+  .menu-columns {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  /* Reservation section stacks vertically */
+  .reservation {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  /* Remove fixed form width */
+  .reservation form {
+    min-width: 0;
+  }
+
+  /* Gallery becomes two columns */
+  .gallery {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Footer becomes two columns */
+  footer {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+
+/* =========================================================
+   18. SMALL MOBILE DEVICES
+   ========================================================= */
+
+/*
+   Applies when screen width is 500px or smaller.
+*/
+@media (max-width: 500px) {
+
+  /* Smaller restaurant logo */
+  .logo {
+    font-size: 17px;
+  }
+
+  /* Hide navigation button on very small screens */
+  .nav-btn {
+    display: none;
+  }
+
+  /* Features become a single column */
+  .features {
+    grid-template-columns: 1fr;
+  }
+
+  /* Remove vertical borders */
+  .feature {
+    border-right: 0;
+
+    /* Add horizontal divider */
+    border-bottom: 1px solid #ddd;
+
+    padding-bottom: 15px;
+  }
+
+  /* Food cards become one column */
+  .dish-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Reduce section padding */
+  .section {
+    padding: 60px 20px;
+  }
+
+  /* Smaller section heading */
+  .section-heading h2 {
+    font-size: 36px;
+  }
+
+  /* Smaller story heading */
+  .story h2 {
+    font-size: 43px;
+  }
+
+  /* Reduce reservation section padding */
+  .reservation {
+    padding: 55px 20px;
+  }
+
+  /* Reservation form becomes one column */
+  .reservation form {
+    grid-template-columns: 1fr;
+  }
+
+  /* Gallery becomes one column */
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+
+  /* Footer becomes one column */
+  footer {
+    grid-template-columns: 1fr;
+  }
+}
